@@ -106,4 +106,14 @@ class Index
             return json($res);
         }
     }
+    
+    function bazi(){
+        $root = __DIR__;
+        $cmd = $root . '/core/YI';
+
+        exec($cmd, $output);
+
+        header('Content-type:application/json');
+        echo json_encode(['error' => 0, 'data' => $output[0]], JSON_UNESCAPED_UNICODE);
+    }
 }
